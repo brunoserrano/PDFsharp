@@ -71,7 +71,7 @@ namespace PdfSharp.Pdf
         /// When overridden in a derived class, appends a raw string representation of this object
         /// to the specified PdfWriter.
         /// </summary>
-        protected abstract void WriteObject(PdfWriter writer);
+        internal abstract void WriteObject(PdfWriter writer);
 
 
         internal void Write(PdfWriter writer)

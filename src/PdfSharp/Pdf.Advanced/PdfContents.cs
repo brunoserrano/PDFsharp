@@ -196,7 +196,7 @@ namespace PdfSharp.Pdf.Advanced
         }
         bool _modified;
 
-        protected override void WriteObject(PdfWriter writer)
+        internal override void WriteObject(PdfWriter writer)
         {
             // Save two bytes in PDF stream...
             if (Elements.Count == 1)

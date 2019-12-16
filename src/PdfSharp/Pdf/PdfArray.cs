@@ -166,7 +166,7 @@ namespace PdfSharp.Pdf
             return pdf.ToString();
         }
 
-        protected override void WriteObject(PdfWriter writer)
+        internal override void WriteObject(PdfWriter writer)
         {
             writer.WriteBeginObject(this);
             int count = Elements.Count;

@@ -52,7 +52,7 @@ namespace PdfSharp.Pdf
             return "null";
         }
 
-        protected override void WriteObject(PdfWriter writer)
+        internal override void WriteObject(PdfWriter writer)
         {
             // Implementet because it must be overridden.
             writer.WriteRaw(" null ");

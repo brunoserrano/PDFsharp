@@ -377,7 +377,7 @@ namespace PdfSharp.Pdf
         /// <summary>
         /// Writes the rectangle.
         /// </summary>
-        protected override void WriteObject(PdfWriter writer)
+        internal override void WriteObject(PdfWriter writer)
         {
             writer.Write(this);
         }

@@ -104,7 +104,7 @@ namespace PdfSharp.Pdf.Advanced
         /// <summary>
         /// Writes an indirect reference.
         /// </summary>
-        protected override void WriteObject(PdfWriter writer)
+        internal override void WriteObject(PdfWriter writer)
         {
             writer.Write(this);
         }

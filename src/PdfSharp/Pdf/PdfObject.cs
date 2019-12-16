@@ -204,7 +204,7 @@ namespace PdfSharp.Pdf
         /// <summary>
         /// Saves the stream position. 2nd Edition.
         /// </summary>
-        protected override void WriteObject(PdfWriter writer)
+        internal override void WriteObject(PdfWriter writer)
         {
             Debug.Assert(false, "Must not come here!");
             //Debug.Assert(_inStreamOffset <= 0);

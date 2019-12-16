@@ -451,7 +451,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
             return obj;
         }
 
-        //protected override void WriteObject(ContentWriter writer)
+        //internal override void WriteObject(ContentWriter writer)
         //{
         //  throw new Exception("Must not come here.");
         //}

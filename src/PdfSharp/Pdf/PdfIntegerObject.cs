@@ -84,7 +84,7 @@ namespace PdfSharp.Pdf
         /// <summary>
         /// Writes the integer literal.
         /// </summary>
-        protected override void WriteObject(PdfWriter writer)
+        internal override void WriteObject(PdfWriter writer)
         {
             writer.WriteBeginObject(this);
             writer.Write(_value);

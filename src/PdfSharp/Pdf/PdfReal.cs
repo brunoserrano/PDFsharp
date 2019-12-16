@@ -75,7 +75,7 @@ namespace PdfSharp.Pdf
         /// <summary>
         /// Writes the real value with up to three digits.
         /// </summary>
-        protected override void WriteObject(PdfWriter writer)
+        internal override void WriteObject(PdfWriter writer)
         {
             writer.Write(this);
         }

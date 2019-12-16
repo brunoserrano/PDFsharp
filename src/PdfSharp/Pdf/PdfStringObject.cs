@@ -139,7 +139,7 @@ namespace PdfSharp.Pdf
         /// <summary>
         /// Writes the string literal with encoding DOCEncoded.
         /// </summary>
-        protected override void WriteObject(PdfWriter writer)
+        internal override void WriteObject(PdfWriter writer)
         {
             writer.WriteBeginObject(this);
             writer.Write(new PdfString(_value, _flags));

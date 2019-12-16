@@ -233,7 +233,7 @@ namespace PdfSharp.Pdf.Advanced
                 str.PrepareForSave();
         }
 
-        protected override void WriteObject(PdfWriter writer)
+        internal override void WriteObject(PdfWriter writer)
         {
             if (_outline != null && _outline.Outlines.Count > 0)
             {

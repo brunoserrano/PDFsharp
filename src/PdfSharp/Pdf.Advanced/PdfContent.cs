@@ -139,7 +139,7 @@ namespace PdfSharp.Pdf.Advanced
             }
         }
 
-        protected override void WriteObject(PdfWriter writer)
+        internal override void WriteObject(PdfWriter writer)
         {
             if (_pdfRenderer != null)
             {
