@@ -172,7 +172,7 @@ namespace PdfSharp.Pdf
                     if (_iref != null)
                         _iref.Document = value;
                 }
-            }
+            }            
         }
         internal PdfDocument _document;
 

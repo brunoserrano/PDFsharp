@@ -182,12 +182,17 @@ namespace PdfSharp.Pdf.Advanced
         {
             get
             {
-                if (_acroForm == null)
-                    _acroForm = (PdfAcroForm)Elements.GetValue(Keys.AcroForm);
-                return _acroForm;
+                return (PdfAcroForm)Elements.GetValue(Keys.AcroForm);
+            }
+
+            set
+            {
+                if (Elements.ContainsKey(Keys.AcroForm))
+                    Elements[Keys.AcroForm] = value;
+                else
+                    Elements.Add(Keys.AcroForm, value);
             }
         }
-        PdfAcroForm _acroForm;
 
         /// <summary>
         /// Gets or sets the language identifier specifying the natural language for all text in the document.
