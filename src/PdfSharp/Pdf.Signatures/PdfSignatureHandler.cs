@@ -140,7 +140,11 @@ namespace PdfSharp.Pdf.Signatures
             if (!Document.Pages[0].Elements.ContainsKey(PdfPage.Keys.Annots))
                 Document.Pages[0].Elements.Add(PdfPage.Keys.Annots, new PdfArray(Document));
 
-            (Document.Pages[0].Elements[PdfPage.Keys.Annots] as PdfArray).Elements.Add(signature);
+            var annots = (Document.Pages[0].Elements[PdfPage.Keys.Annots] as PdfArray);
+            if (annots != null)
+            {
+                annots.Elements.Add(signature);
+            }
                         
             catalog.AcroForm.Fields.Elements.Add(signature);
 
