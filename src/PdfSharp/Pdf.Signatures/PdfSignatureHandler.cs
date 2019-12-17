@@ -1,4 +1,5 @@
-﻿using PdfSharp.Pdf;
+﻿using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 using PdfSharp.Pdf.AcroForms;
 using PdfSharp.Pdf.Advanced;
 using PdfSharp.Pdf.Annotations;
@@ -20,7 +21,6 @@ namespace PdfSharp.Pdf.Signatures
     /// </summary>
     public class PdfSignatureHandler
     {
-
         private PositionTracker contentsTraker;
         private PositionTracker rangeTracker;
         private int? maximumSignatureLength;
@@ -43,6 +43,17 @@ namespace PdfSharp.Pdf.Signatures
                 maximumSignatureLength = signer.GetSignedCms(new MemoryStream(new byte[] { 0})).Length;
                 SignatureSizeComputed(this, new IntEventArgs() { Value = maximumSignatureLength.Value });
             }
+        }
+
+        public void AttachToPage(PdfPage page)
+        {
+            var appearanceHandler = Options.AppearanceHandler ?? new DefaultAppearanceHandler()
+            {
+                Location = Options.Location,
+                Reason = Options.Reason,
+                Signer = signer.GetName()
+            };
+            appearanceHandler.DrawAppearance(XGraphics.FromPdfPage(page), Options.Rectangle);
         }
 
         public PdfSignatureHandler(ISigner signer, int? signatureMaximumLength, PdfSignatureOptions options)
@@ -75,9 +86,6 @@ namespace PdfSharp.Pdf.Signatures
             writer.Stream.Position = contentsTraker.Start+1;
             writer.Write(hexFormated);
         }
-
-
-        
 
         string FormatHex(byte[] bytes)
         {
